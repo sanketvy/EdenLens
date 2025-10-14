@@ -1,0 +1,1 @@
+# EdenLens Documentation – Architecture, Frontend, Backend, and Guides
