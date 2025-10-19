@@ -3,6 +3,8 @@ import DashboardPage from './pages/DashboardPage';
 import HomePage from './pages/HomePage'
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import ReportPage from './pages/ReportPage';
+import ProjectsPage from './pages/ProjectsPage';
+import SettingsPage from './pages/SettingsPage';
 
 function App() {
 
@@ -13,6 +15,8 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/dashboard' element={<DashboardPage />} />
+          <Route path='/projects' element={<ProjectsPage />} />
+          <Route path='/settings' element={<SettingsPage />} />
           <Route path='/report/:id' element={<ReportPage />} />
         </Routes>
       </BrowserRouter>

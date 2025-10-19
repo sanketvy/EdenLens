@@ -19,13 +19,13 @@ const ReportPage = () => {
                 <div className="px-5 flex justify-between items-center">
                     <div>
                         <h1 className="text-3xl">Production App Log</h1>
-                        <p>12 Jan 2026, 12:33 PM</p>
+                        <p>12 Jan 2026, 12:33 PM, Java 8, Serial GC</p>
                     </div>
                     <div className="flex flex-col">
-                        <h1 className="text-right">Java 8, Serial GC</h1>
                         <div className="flex gap-2">
                             <button className="bg-black text-white rounded-md px-2 py-1 cursor-pointer">Delete</button>
                             <button className="bg-black text-white rounded-md px-2 py-1 cursor-pointer">Email Report</button>
+                            <button className="bg-black text-white rounded-md px-2 py-1 cursor-pointer">Share</button>
                         </div>
                     </div>
                 </div>
