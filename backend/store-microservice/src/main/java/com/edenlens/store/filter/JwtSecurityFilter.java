@@ -1,6 +1,6 @@
-package com.edenlens.user.filters;
+package com.edenlens.store.filter;
 
-import com.edenlens.user.entity.Users;
+import com.edenlens.store.config.UserDetailsImpl;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -48,9 +49,9 @@ public class JwtSecurityFilter extends OncePerRequestFilter {
 
                 if (claims != null &&
                         claims.getBody().getExpiration().after(new Date())) {
-                    Users user = new Users();
-                    user.setEmail(claims.getBody().getSubject());
-                    user.setId(claims.getBody().get("id", Long.class));
+                    UserDetails user = UserDetailsImpl.builder().userId(claims.getBody().get("id", Long.class))
+                            .email(claims.getBody().getSubject())
+                            .build();
                     UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user, null, List.of(new SimpleGrantedAuthority(claims.getBody().get("role", String.class))));
                     SecurityContextHolder.getContext().setAuthentication(authentication);
                 }

@@ -1,8 +1,8 @@
 spring:
   application:
-    name: USER-MS
+    name: STORE-MS
   datasource:
-    url: jdbc:postgresql://localhost:5432/edenlens-user
+    url: jdbc:postgresql://localhost:5432/edenlens-store
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
@@ -29,10 +29,5 @@ app:
   signing:
     key: this-is-a-very-strong-secret-at-least-32-bytes
 
-eureka:
-  instance:
-    hostname: localhost
-    preferIpAddress: true
-  client:
-    service-url:
-      defaultZone: http://localhost:8000/eureka/  # Eureka Server URL
+server:
+  port: 8081
